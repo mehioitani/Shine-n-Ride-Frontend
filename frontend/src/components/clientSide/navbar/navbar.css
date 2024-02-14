@@ -1,55 +1,193 @@
+/* check the a tag and replace it
+check the button and show it */
+
+body {
+  min-height: 100vh;
+  background: url("../../../assets/backgroundImage/backgroundImage_LE_auto_x2.png");
+  background-size: cover;
+  background-position: center;
+}
+
 .navbar-wrapper-client {
-  background-color: rgba(230, 167, 167, 0.752);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.3rem 10%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  padding: 30px 10px; 
+  z-index: 100;
 }
 
-.navbar-links-client li {
-  color: white;
+.navbar-wrapper-client::before {
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.92);
+  z-index: -1;
+}
+
+.navbar-wrapper-client::after {
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.893),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.navbar-wrapper-client:hover::after {
+  left: 100%;
+}
+
+.navbar-client a {
+  font-size: 1.15rem;
+  color: #fff;
   text-decoration: none;
+  font-weight: 500;
+  margin-left: 2.5rem;
 }
 
-.navbar-logo {
+#check {
+  display: none;
+}
+
+.icons {
+  position: absolute;
+  right: 15%;
+  font-size: 2.8rem;
+  color: #fff;
   cursor: pointer;
+  display: none;
 }
 
-.navbar-links-client {
-  list-style: none;
-  margin: 0; 
-  padding: 0;
-}
-
-.navbar-links-client li {
-  display: inline-block;
-  padding: 0px 20px;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-.navbar-links-client li:hover {
-  background-color: white;
-}
-
-.navbar-wrapper-client button {
-  padding: 9px 25px;
-  background-color: rgba(0, 136, 169, 1);
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s ease 0s;
-  box-sizing: border-box;
-}
-
-/* ul.topnav li a.active {
-  background-color: #04aa6d;
-} */
-
-@media screen and (max-width: 700px) {
-  .navbar-wrapper-client button,
-  .navbar-wrapper-client li {
-    flex: 0 1 auto;
-    width: 100%;
-    text-align: center;
+@media (max-width: 992px) {
+  .navbar-wrapper-client {
+    padding: 1.3rem 5%;
   }
-} 
+}
+
+@media (max-width: 768px) {
+  .icons {
+    display: inline-flex;
+  }
+
+  #check:checked ~ .icons #menu-icon {
+    display: none;
+  }
+
+  .icons #close-icon {
+    display: none;
+  }
+
+  #check:checked ~ .icons #close-icon {
+    display: block;
+  }
+
+  .navbar-client {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: rgba(0, 0, 0, 0.92);
+    /* box-shadow: 0.5rem 1rem rgba(0,0,0,.1) ; */
+    overflow: hidden;
+    transition: 0.3s ease;
+  }
+
+  #check:checked ~ .navbar-client {
+    height: 17.7rem;
+  }
+
+  .navbar-client a {
+    display: block;
+    font-size: 1.1rem;
+    margin: 1.5rem 0;
+    text-align: center;
+    transform: translateY(-50px);
+    opacity: 0;
+    transition: 0.3s ease;
+  }
+
+  #check:checked ~ .navbar-client a {
+    transform: translateY(0);
+    opacity: 1;
+    transition-delay: calc(0.15s * var(--i));
+  }
+}
+
+.CartBtn {
+  width: 140px;
+  height: 40px;
+  border-radius: 12px;
+  border: none;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition-duration: 0.5s;
+  overflow: hidden;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.103);
+  position: relative;
+}
+
+.IconContainer {
+  position: absolute;
+  left: -50px;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 2;
+  transition-duration: 0.5s;
+}
+
+.icon {
+  border-radius: 1px;
+}
+
+.text {
+  height: 100%;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(17, 17, 17);
+  z-index: 1;
+  transition-duration: 0.5s;
+  font-size: 1.04em;
+  font-weight: 600;
+}
+
+.CartBtn:hover .IconContainer {
+  transform: translateX(58px);
+  border-radius: 40px;
+  transition-duration: 0.5s;
+}
+
+.CartBtn:hover .text {
+  transform: translate(10px, 0px);
+  transition-duration: 0.5s;
+}
+
+.CartBtn:active {
+  transform: scale(0.95);
+  transition-duration: 0.5s;
+}
