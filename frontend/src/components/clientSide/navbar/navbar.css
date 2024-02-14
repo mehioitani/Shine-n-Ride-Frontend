@@ -1,0 +1,55 @@
+.navbar-wrapper-client {
+  background-color: rgba(230, 167, 167, 0.752);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 30px 10px; 
+}
+
+.navbar-links-client li {
+  color: white;
+  text-decoration: none;
+}
+
+.navbar-logo {
+  cursor: pointer;
+}
+
+.navbar-links-client {
+  list-style: none;
+  margin: 0; 
+  padding: 0;
+}
+
+.navbar-links-client li {
+  display: inline-block;
+  padding: 0px 20px;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.navbar-links-client li:hover {
+  background-color: white;
+}
+
+.navbar-wrapper-client button {
+  padding: 9px 25px;
+  background-color: rgba(0, 136, 169, 1);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+  box-sizing: border-box;
+}
+
+/* ul.topnav li a.active {
+  background-color: #04aa6d;
+} */
+
+@media screen and (max-width: 700px) {
+  .navbar-wrapper-client button,
+  .navbar-wrapper-client li {
+    flex: 0 1 auto;
+    width: 100%;
+    text-align: center;
+  }
+} 
