@@ -1,0 +1,83 @@
+.services-card-client img {
+  height: 500px;
+  width: 350px;
+  border-radius: 3px;
+  transition: 0.5s;
+}
+
+.services-card-client {
+  height: 500px;
+  margin: 50px;
+  box-shadow: 5px 5px 20px black;
+  overflow: hidden;
+}
+
+.services-container-client {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 20px;
+  max-width: 1280px;
+  margin: 0 auto;
+  height: 100vh;
+  align-items: center;
+}
+.service-intro {
+  height: 200px;
+  width: 350px;
+  padding: 6px;
+  box-sizing: border-box;
+  position: relative;
+  bottom: 204px;
+  background: rgb(27, 27, 27, 0.5);
+  color: white;
+  transition: 0.5s;
+}
+/* position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block; */
+
+h1 {
+  margin: 10px;
+  font-size: 40px;
+}
+
+.service-intro p {
+  font-size: 20px;
+  margin-right: 2px;
+  width:300px; 
+  visibility: hidden;
+  opacity: 0;
+}
+
+span {
+  font-weight: bold;
+}
+
+.services-card-client:hover {
+  cursor: pointer;
+}
+
+@media (max-width: 1460px) {
+  .services-container-client {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.services-card-client:hover .service-intro {
+  height: 220px;
+  bottom: 224px;
+  background: black;
+}
+
+.services-card-client:hover p {
+  opacity: 1;
+  visibility: visible;
+}
+
+.services-card-client:hover img {
+  transform: scale(1.1) rotate(-3deg);
+}

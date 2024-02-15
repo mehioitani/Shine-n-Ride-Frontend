@@ -9,7 +9,7 @@ body {
 }
 
 .navbar-wrapper-client {
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   width: 100%;
@@ -27,7 +27,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.92);
+  background-color: rgb(0, 0, 0);
   z-index: -1;
 }
 
@@ -47,16 +47,15 @@ body {
   transition: 0.5s;
 }
 
-.navbar-wrapper-client:hover::after {
-  left: 100%;
-}
-
 .navbar-client a {
-  font-size: 1.15rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.35rem;
   color: #fff;
   text-decoration: none;
   font-weight: 500;
   margin-left: 2.5rem;
+  display: inline;
+  margin-right: 20px;
 }
 
 #check {
@@ -72,9 +71,64 @@ body {
   display: none;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1460px) {
   .navbar-wrapper-client {
-    padding: 1.3rem 5%;
+    padding: 1.5rem 5%;
+  }
+  .icons,
+  .car-cart {
+    display: inline-flex;
+  }
+  #check:checked ~ .icons #menu-icon {
+    display: none;
+  }
+
+  .icons #close-icon {
+    display: none;
+  }
+
+  #check:checked ~ .icons #close-icon {
+    display: block;
+  }
+
+  .navbar-client {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: rgba(0, 0, 0, 0.92);
+    box-shadow: 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: 0.3s ease;
+  }
+
+  #check:checked ~ .navbar-client {
+    height: 17.7rem;
+  }
+
+  .navbar-client a {
+    display: block;
+    font-size: 1.4rem;
+    margin: 1.5rem 0;
+    text-align: center;
+    transform: translateY(-50px);
+    opacity: 0;
+    transition: 0.3s ease;
+  }
+
+  #check:checked ~ .navbar-client a {
+    transform: translateY(0);
+    opacity: 1;
+    transition-delay: calc(0.15s * var(--i));
+  }
+  .car-cart {
+    position: absolute;
+    right: 8%;
+    top: 32%;
+  }
+  .carbutton {
+    display: none;
   }
 }
 
@@ -126,68 +180,57 @@ body {
     opacity: 1;
     transition-delay: calc(0.15s * var(--i));
   }
+  .car-cart {
+    position: absolute;
+    right: 6%;
+    top: 32%;
+  }
 }
 
-.CartBtn {
-  width: 140px;
-  height: 40px;
-  border-radius: 12px;
-  border: none;
-  background-color: #fff;
+.carbutton {
+  width: 160px;
+  height: 70px;
+  padding: 20px;
+  background: #212121;
+  border: 3px inset white;
+  /* border: none; */
+  border-radius: 5%;
+  transition: 0.2s;
+}
+
+.caption {
+  color: #e8e8e8;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 20px;
+  transition: 0.2s;
+}
+
+.car {
+  fill: #e8e8e8;
+  width: 50px;
+  height: 50px;
+  margin-left: -90px;
+  margin-top: -35px;
+  transition: 0.2s ease-in-out;
+}
+
+.carbutton:not(:hover) .car {
+  opacity: 0%;
+  transform: translateX(-150px);
+}
+
+.carbutton:hover .caption {
+  opacity: 0%;
+}
+
+.carbutton:focus .car {
+  transform: translateX(120px);
+}
+
+.car-cart {
+  margin-bottom: -29px;
+}
+.book-now-bag {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition-duration: 0.5s;
-  overflow: hidden;
-  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.103);
-  position: relative;
-}
-
-.IconContainer {
-  position: absolute;
-  left: -50px;
-  width: 30px;
-  height: 30px;
-  background-color: transparent;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  z-index: 2;
-  transition-duration: 0.5s;
-}
-
-.icon {
-  border-radius: 1px;
-}
-
-.text {
-  height: 100%;
-  width: fit-content;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgb(17, 17, 17);
-  z-index: 1;
-  transition-duration: 0.5s;
-  font-size: 1.04em;
-  font-weight: 600;
-}
-
-.CartBtn:hover .IconContainer {
-  transform: translateX(58px);
-  border-radius: 40px;
-  transition-duration: 0.5s;
-}
-
-.CartBtn:hover .text {
-  transform: translate(10px, 0px);
-  transition-duration: 0.5s;
-}
-
-.CartBtn:active {
-  transform: scale(0.95);
-  transition-duration: 0.5s;
+  gap: 50px;
 }

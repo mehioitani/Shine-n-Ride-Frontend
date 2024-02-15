@@ -1,5 +1,6 @@
 import "./navbar.css";
 import Logo from "../../../assets/logo/logo.png";
+import CarCart from "../../../assets/logo/carCart.png";
 
 const Navbar = () => {
   return (
@@ -21,25 +22,25 @@ const Navbar = () => {
         <a style={{ "--i": 2 }}>Contact Us</a>
         <a style={{ "--i": 3 }}>About Us</a>
       </nav>
-      {/* <div className="cart-notification"> */}
-        <button  style={{ "--i": 4 }} className="CartBtn">
-          <span className="IconContainer">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="1em"
-              viewBox="0 0 576 512"
-              fill="rgb(17, 17, 17)"
-              className="cart"
-            >
-              <path d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"></path>
-            </svg>
-          </span>
-          <p className="text">Book Now</p>
+      <div className="book-now-bag">
+        <button style={{ "--i": 4 }} className="carbutton">
+          <div className="caption">Book Now</div>
+          <svg
+            viewBox="0 0 512 512"
+            xmlns="http://www.w3.org/2000/svg"
+            className="car"
+          >
+            <path d="M355.975 292.25a24.82 24.82 0 1 0 24.82-24.81 24.84 24.84 0 0 0-24.82 24.81zm-253-24.81a24.81 24.81 0 1 1-24.82 24.81 24.84 24.84 0 0 1 24.81-24.81zm-76.67-71.52h67.25l-13.61 49.28 92-50.28h57.36l1.26 34.68 32 14.76 11.74-14.44h15.62l3.16 16c137.56-13 192.61 29.17 192.61 29.17s-7.52 5-25.93 8.39c-3.88 3.31-3.66 14.44-3.66 14.44h24.2v16h-52v-27.48c-1.84.07-4.45.41-7.06.47a40.81 40.81 0 1 0-77.25 23h-204.24a40.81 40.81 0 1 0-77.61-17.67c0 1.24.06 2.46.17 3.67h-36z"></path>
+          </svg>
         </button>
-        {/* <a style={{ "--i": 4 }}>Book Now</a> */}
-        {/* <a style={{ "--i": 4 }}>Book Now</a> */}
+        <img
+          src={CarCart}
+          alt="CarCart"
+          style={{ height: "70px", width: "50px", "--i": 5 }}
+          className="car-cart"
+        />
       </div>
-    // </div>
+    </div>
   );
 };
 
