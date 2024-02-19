@@ -6,6 +6,8 @@ import "./servicesCard.css";
 const ServicesCard = () => {
   return (
     <div className="services-container-client">
+      <div className="services-card-title"><h3>Our Services</h3></div>
+      <div className="services-cards-container">
       <div className="services-card-client">
         <img src={Detail} alt="Detail" />
         <div className="service-intro">
@@ -41,6 +43,7 @@ const ServicesCard = () => {
             quae qui a! Ut, animi in!
           </p>
         </div>
+      </div>
       </div>
     </div>
   );

@@ -1,0 +1,10 @@
+.widget-container{
+    max-width: 1280px;
+    margin: 50px auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.widget-container img {
+    height: 250px;
+}   

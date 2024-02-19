@@ -1,4 +1,4 @@
-import DetailingVideo from '../../assets/videos/detailingVideo.mp4';
+import DetailingVideo from '../../../assets/videos/detailingVideo.mp4';
 import './video.css'
 
 const Video = () => {

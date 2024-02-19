@@ -13,14 +13,25 @@
 }
 
 .services-container-client {
+  
+  max-width: 1280px;
+  margin: 15px auto;
+  height: 70vh;
+  align-items: center;
+
+}
+
+h3{
+  text-align: center;  
+}
+
+.services-cards-container{
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   gap: 20px;
-  max-width: 1280px;
-  margin: 0 auto;
-  height: 100vh;
-  align-items: center;
+  height: 100%;
 }
+
 .service-intro {
   height: 200px;
   width: 350px;
@@ -47,7 +58,7 @@ h1 {
 .service-intro p {
   font-size: 20px;
   margin-right: 2px;
-  width:300px; 
+  width: 300px;
   visibility: hidden;
   opacity: 0;
 }
