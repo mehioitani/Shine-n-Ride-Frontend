@@ -6,44 +6,46 @@ import "./servicesCard.css";
 const ServicesCard = () => {
   return (
     <div className="services-container-client">
-      <div className="services-card-title"><h3>Our Services</h3></div>
+      <div className="services-card-title">
+        <h1>Our Services</h1>
+      </div>
       <div className="services-cards-container">
-      <div className="services-card-client">
-        <img src={Detail} alt="Detail" />
-        <div className="service-intro">
-          <h1>Polish</h1>
-          <p>
-            Lorem <span>ipsum </span>dolor sit amet consectetur adipisicing
-            elit. Libero voluptatem ex voluptatum, deserunt fugit nulla,
-            molestiae similique tempora ab aliquid dicta eaque veritatis, ea
-            quae qui a! Ut, animi in!
-          </p>
+        <div className="services-card-client">
+          <img src={Detail} alt="Detail" />
+          <div className="service-intro">
+            <h1>Polish</h1>
+            <p>
+              Lorem <span>ipsum </span>dolor sit amet consectetur adipisicing
+              elit. Libero voluptatem ex voluptatum, deserunt fugit nulla,
+              molestiae similique tempora ab aliquid dicta eaque veritatis, ea
+              quae qui a! Ut, animi in!
+            </p>
+          </div>
         </div>
-      </div>
-      <div className="services-card-client">
-        <img src={Detail1} alt="Detail" />
-        <div className="service-intro">
-          <h1>Polish</h1>
-          <p>
-            Lorem <span>ipsum </span>dolor sit amet consectetur adipisicing
-            elit. Libero voluptatem ex voluptatum, deserunt fugit nulla,
-            molestiae similique tempora ab aliquid dicta eaque veritatis, ea
-            quae qui a! Ut, animi in!
-          </p>
+        <div className="services-card-client">
+          <img src={Detail1} alt="Detail" />
+          <div className="service-intro">
+            <h1>Polish</h1>
+            <p>
+              Lorem <span>ipsum </span>dolor sit amet consectetur adipisicing
+              elit. Libero voluptatem ex voluptatum, deserunt fugit nulla,
+              molestiae similique tempora ab aliquid dicta eaque veritatis, ea
+              quae qui a! Ut, animi in!
+            </p>
+          </div>
         </div>
-      </div>
-      <div className="services-card-client">
-        <img src={Detail2} alt="Detail" />
-        <div className="service-intro">
-          <h1>Polish</h1>
-          <p>
-            Lorem <span>ipsum </span>dolor sit amet consectetur adipisicing
-            elit. Libero voluptatem ex voluptatum, deserunt fugit nulla,
-            molestiae similique tempora ab aliquid dicta eaque veritatis, ea
-            quae qui a! Ut, animi in!
-          </p>
+        <div className="services-card-client">
+          <img src={Detail2} alt="Detail" />
+          <div className="service-intro">
+            <h1>Polish</h1>
+            <p>
+              Lorem <span>ipsum </span>dolor sit amet consectetur adipisicing
+              elit. Libero voluptatem ex voluptatum, deserunt fugit nulla,
+              molestiae similique tempora ab aliquid dicta eaque veritatis, ea
+              quae qui a! Ut, animi in!
+            </p>
+          </div>
         </div>
-      </div>
       </div>
     </div>
   );

@@ -1,35 +1,61 @@
-.reviews-client-container .slick-slide {
-  max-width: 1280px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 40px 0;
-  background-color: grey;
+.reviews-client-container {
+  max-width: 1280px !important;
+  margin: 0 auto !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 40px 0 !important;
+  /* background-color: grey !important; */
+  height: 500px;
 }
 
 .reviews-client-content {
-  margin: 0 40px;
+  
+  overflow: hidden !important;
+  border-radius: 25px !important;
+  display: flex !important;
+  justify-content: center !important; 
+  height: 100% !important;
 }
 
 .reviews-card-client {
-  width: 320px;
-  border-radius: 25px;
-  background-color: #a3a3a3;
+  width: 320px !important; 
+  border-radius: 25px !important;
+  background-color: #a3a3a3 !important;
+  height: 100% !important;
+}
+
+.slick-track {
+  /* width: 30% !important ; */
+  height: 100% !important;
+}
+
+/* .slick-slide .slick-active{
+  height: 100% !important;
+} */
+
+.slick-slide { 
+  height: 100%!important;
 }
 
 .image-reviews-client-content,
 .reviews-card-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 10px 14px;
+  display: flex ; 
+  flex-direction: column ;
+  align-items: center ;
+  padding: 10px 45px ;
+    /* height: 100%; */
+}
+
+.reviews-card-content{
+  /* height: 100%; */
 }
 
 .image-reviews-client-content {
-  position: relative;
-  row-gap: 5px;
-  padding: 25px 0;
+  position: relative !important;
+  row-gap: 5px !important;
+  padding: 25px 0 !important;
+  /* height: 100% !important; */
 }
 
 .overlay {
@@ -55,39 +81,38 @@
 
 .overlay::after{
     border-radius: 0 25px 0 0;
-    background: #a3a3a3
+    background: #a3a3a3; 
 }
 
 .reviews-client-card-image-content {
   position: relative;
   height: 150px;
-  width: 150px;
+  width: 150px; 
   border-radius: 50%;
   padding: 3px;
 }
 
 .reviews-client-card-image-content .reviews-client-card-image {
-  height: 100%;
+  height: 100% !important;
   width: 100%;
   object-fit: cover;
-  border-radius: 50%;
+  border-radius: 50%; 
   border: 4px solid #fff;
 }
 
-.reviews-client-description {
-  color: #fff;
-}
 
 .reviews-client-name {
   font-size: 18px;
   font-weight: 500;
   color: #fff;
+
 }
 
 .reviews-client-description {
   font-size: 14px;
   color: #fff;
   text-align: center;
+  min-height: 100px;
 }
 
 .reviews-client-button {
@@ -104,4 +129,29 @@
 
 .reviews-client-button:hover {
   background: #3c3a3a;
+}
+
+@media (max-width: 1460px) {
+  .reviews-client-container{
+    justify-content: center;  
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .reviews-client-content{
+    justify-content: center;  
+    display: flex;
+    flex-wrap: wrap;  
+  }
+  .reviews-card-client-wrapper{
+    justify-content: center;  
+    display: flex;
+    flex-wrap: wrap; 
+  }
+  .reviews-card-client{
+    justify-content: center;  
+    display: flex;
+    flex-wrap: wrap; 
+  }
+  .slick-slide{
+  }
 }

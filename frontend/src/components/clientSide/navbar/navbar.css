@@ -1,6 +1,3 @@
-/* check the a tag and replace it
-check the button and show it */
-
 body {
   min-height: 100vh;
   background: url("../../../assets/backgroundImage/backgroundImage_LE_auto_x2.png");
@@ -18,6 +15,7 @@ body {
   justify-content: space-between;
   align-items: center;
   z-index: 100;
+  height: 18vh;
 }
 
 .navbar-wrapper-client::before {
@@ -47,7 +45,7 @@ body {
   transition: 0.5s;
 }
 
-.navbar-client a {
+.navbar-client ul li {
   font-family: "Poppins", sans-serif;
   font-size: 1.35rem;
   color: #fff;
@@ -56,13 +54,17 @@ body {
   margin-left: 2.5rem;
   display: inline;
   margin-right: 20px;
+  transition: color 0.3s;
+  cursor: pointer;
 }
+
+
 
 #check {
   display: none;
 }
 
-.icons {
+.icons-nav {
   position: absolute;
   right: 15%;
   font-size: 2.8rem;
@@ -71,23 +73,23 @@ body {
   display: none;
 }
 
-@media (max-width: 1460px) {
+@media (max-width: 1400px) {
   .navbar-wrapper-client {
     padding: 1.5rem 5%;
   }
-  .icons,
+  .icons-nav,
   .car-cart {
     display: inline-flex;
   }
-  #check:checked ~ .icons #menu-icon {
+  #check:checked ~ .icons-nav #menu-icon {
     display: none;
   }
 
-  .icons #close-icon {
+  .icons-nav #close-icon {
     display: none;
   }
 
-  #check:checked ~ .icons #close-icon {
+  #check:checked ~ .icons-nav #close-icon {
     display: block;
   }
 
@@ -107,7 +109,7 @@ body {
     height: 17.7rem;
   }
 
-  .navbar-client a {
+  .navbar-client ul li {
     display: block;
     font-size: 1.4rem;
     margin: 1.5rem 0;
@@ -117,7 +119,7 @@ body {
     transition: 0.3s ease;
   }
 
-  #check:checked ~ .navbar-client a {
+  #check:checked ~ .navbar-client ul li {
     transform: translateY(0);
     opacity: 1;
     transition-delay: calc(0.15s * var(--i));
@@ -126,26 +128,27 @@ body {
     position: absolute;
     right: 8%;
     top: 32%;
+    margin-top: 3px;
   }
-  .carbutton {
+  /* .carbutton {
     display: none;
-  }
+  } */
 }
 
 @media (max-width: 768px) {
-  .icons {
+  .icons-nav {
     display: inline-flex;
   }
 
-  #check:checked ~ .icons #menu-icon {
+  #check:checked ~ .icons-nav #menu-icon {
     display: none;
   }
 
-  .icons #close-icon {
+  .icons-nav #close-icon {
     display: none;
   }
 
-  #check:checked ~ .icons #close-icon {
+  #check:checked ~ .icons-nav #close-icon {
     display: block;
   }
 
@@ -156,7 +159,6 @@ body {
     width: 100%;
     height: 0;
     background-color: rgba(0, 0, 0, 0.92);
-    /* box-shadow: 0.5rem 1rem rgba(0,0,0,.1) ; */
     overflow: hidden;
     transition: 0.3s ease;
   }
@@ -165,7 +167,7 @@ body {
     height: 17.7rem;
   }
 
-  .navbar-client a {
+  .navbar-client ul li {
     display: block;
     font-size: 1.1rem;
     margin: 1.5rem 0;
@@ -175,7 +177,7 @@ body {
     transition: 0.3s ease;
   }
 
-  #check:checked ~ .navbar-client a {
+  #check:checked ~ .navbar-client ul li {
     transform: translateY(0);
     opacity: 1;
     transition-delay: calc(0.15s * var(--i));
@@ -184,16 +186,39 @@ body {
     position: absolute;
     right: 6%;
     top: 32%;
+    margin-top: 3px;
   }
 }
 
-.carbutton {
+@media (max-width: 375px) {
+  .car-cart {
+    position: absolute;
+    right: 2%;
+    top: 25%;
+  }
+  .navbar-client ul li {
+    font-family: "Poppins", sans-serif;
+    font-size: 1.35rem;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;}
+}
+
+@media (min-width: 0px) {
+  .navbar-client ul li {
+    font-family: "Poppins", sans-serif;
+    font-size: 1.35rem;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;}
+}
+
+/*.carbutton {
   width: 160px;
   height: 70px;
   padding: 20px;
   background: #212121;
   border: 3px inset white;
-  /* border: none; */
   border-radius: 5%;
   transition: 0.2s;
 }
@@ -205,7 +230,7 @@ body {
   transition: 0.2s;
 }
 
-.car {
+ .car {
   fill: #e8e8e8;
   width: 50px;
   height: 50px;
@@ -225,12 +250,44 @@ body {
 
 .carbutton:focus .car {
   transform: translateX(120px);
-}
+} */
 
-.car-cart {
-  margin-bottom: -29px;
+.car-cart-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.book-now-bag {
+/* .book-now-bag {
   display: flex;
   gap: 50px;
+} */
+
+
+@media (min-width:1401px) {
+  .line {
+    font-family: 'Wendy One', sans-serif;
+    color:  #fff;
+    cursor: pointer;
+    position: relative;
+    font-size: 10vmin;
+  }
+  
+  .line:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    bottom: -10px;
+    left: -1px;
+    transform: scaleX(0);
+    background: #fff ;
+    transform-origin: bottom right;
+    transition: transform 0.5s ease-out;
+  }
+  
+  .line:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
 }
+
