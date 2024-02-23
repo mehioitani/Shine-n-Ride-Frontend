@@ -1,4 +1,5 @@
 import "./navbar.css";
+import { Link } from "react-router-dom";
 import Logo from "../../../assets/logo/logo.png";
 import CarCart from "../../../assets/logo/carCart.png";
 
@@ -18,23 +19,27 @@ const Navbar = () => {
       </label>
       <nav className="navbar-client">
         <ul>
-          <li  className="line" style={{ "--i": 0 }}>Home</li>
-          <li  className="line" style={{ "--i": 1 }}>Our Services</li>
-          <li   className="line" style={{ "--i": 2 }}>Contact Us</li>
-          <li className="line" style={{ "--i": 3 }}>About Us</li>
+          <li className="line" style={{ "--i": 0 }}>
+            <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
+              Home
+            </Link>
+          </li>
+          <li className="line" style={{ "--i": 1 }}>
+            Our Services
+          </li>
+          <li className="line" style={{ "--i": 2 }}>
+            <Link
+              to="/contactus"
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              Contact Us
+            </Link>
+          </li>
+          <li className="line" style={{ "--i": 3 }}>
+            About Us
+          </li>
         </ul>
       </nav>
-      {/* <div className="book-now-bag"> */}
-      {/* <button style={{ "--i": 4 }} className="carbutton">
-          <div className="caption">Book Now</div>
-          <svg
-            viewBox="0 0 512 512"
-            xmlns="http://www.w3.org/2000/svg"
-            className="car"
-          >
-            <path d="M355.975 292.25a24.82 24.82 0 1 0 24.82-24.81 24.84 24.84 0 0 0-24.82 24.81zm-253-24.81a24.81 24.81 0 1 1-24.82 24.81 24.84 24.84 0 0 1 24.81-24.81zm-76.67-71.52h67.25l-13.61 49.28 92-50.28h57.36l1.26 34.68 32 14.76 11.74-14.44h15.62l3.16 16c137.56-13 192.61 29.17 192.61 29.17s-7.52 5-25.93 8.39c-3.88 3.31-3.66 14.44-3.66 14.44h24.2v16h-52v-27.48c-1.84.07-4.45.41-7.06.47a40.81 40.81 0 1 0-77.25 23h-204.24a40.81 40.81 0 1 0-77.61-17.67c0 1.24.06 2.46.17 3.67h-36z"></path>
-          </svg>
-        </button> */}
       <div
         className="car-cart-wrapper"
         style={{ height: "150px", width: "200px", "--i": 4 }}
@@ -42,11 +47,10 @@ const Navbar = () => {
         <img
           src={CarCart}
           alt="CarCart"
-          style={{ height: "48px", width: "40px", "--i": 4 , cursor: "pointer" }}
+          style={{ height: "48px", width: "40px", "--i": 4, cursor: "pointer" }}
           className="car-cart"
         />
       </div>
-      {/* </div> */}
     </div>
   );
 };

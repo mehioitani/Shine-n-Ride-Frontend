@@ -5,7 +5,6 @@
   align-items: center !important;
   justify-content: center !important;
   padding: 40px 0 !important;
-  /* background-color: grey !important; */
   height: 500px;
 }
 
@@ -26,13 +25,8 @@
 }
 
 .slick-track {
-  /* width: 30% !important ; */
   height: 100% !important;
 }
-
-/* .slick-slide .slick-active{
-  height: 100% !important;
-} */
 
 .slick-slide { 
   height: 100%!important;
@@ -44,18 +38,13 @@
   flex-direction: column ;
   align-items: center ;
   padding: 10px 45px ;
-    /* height: 100%; */
 }
 
-.reviews-card-content{
-  /* height: 100%; */
-}
 
 .image-reviews-client-content {
   position: relative !important;
   row-gap: 5px !important;
   padding: 25px 0 !important;
-  /* height: 100% !important; */
 }
 
 .overlay {
@@ -64,7 +53,7 @@
   top: 0;
   height: 100%;
   width: 100%;
-  background: #000;
+  background: rgb(18,18,18);
   border-radius: 25px 25px 0 25px;
 }
 
@@ -76,7 +65,7 @@
   bottom: -40px;
   height: 40px;
   width: 40px;
-  background: #000;
+  background: rgb(18,18,18)
 }
 
 .overlay::after{
@@ -120,7 +109,7 @@
   font-size: 16px;
   color: #fff;
   padding: 8px 16px;
-  background: #000;
+  background: rgb(18,18,18);
   border-radius: 6px;
   margin: 14px;
   cursor: pointer;
@@ -151,7 +140,5 @@
     justify-content: center;  
     display: flex;
     flex-wrap: wrap; 
-  }
-  .slick-slide{
   }
 }

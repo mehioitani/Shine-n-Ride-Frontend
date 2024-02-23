@@ -1,16 +1,3 @@
-/* .detailing-video video{
-    pointer-events: none;
-    max-width: 100%;
-    margin: 0 auto;
-  }   
-  .video-overlay {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    padding: 20px;
-    color: white; 
-    background: rgba(0, 0, 0, 0.5); 
-  } */
 .logo-video {
   color: #fff;
   text-transform: uppercase;
@@ -25,9 +12,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* background: #9f9898; */
   transition: 0.5s;
   z-index: 2;
+  margin-bottom: 80px;
 }
 .showcase.active {
   right: 300px;
@@ -40,7 +27,6 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* opacity: 0.8; */
 }
 .overlay-video {
   position: absolute;
@@ -53,12 +39,10 @@
 .text {
   position: relative;
   z-index: 10;
-  background-color: rgb(36,38,43);
-  opacity: .8;
+  background-color: rgb(36, 38, 43);
+  opacity: 0.8;
   border-radius: 15px;
   width: 900px;
-  /* height: 800px; */
-  /* text-align: center; */
 }
 
 .text h2 {
@@ -86,10 +70,8 @@
   padding: 0 15px;
 }
 
-
-
 @media (max-width: 991px) {
-  .showcase{
+  .showcase {
     padding: 40px;
   }
   .text h2 {

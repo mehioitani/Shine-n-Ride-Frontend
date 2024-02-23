@@ -1,23 +1,31 @@
 import "./App.css";
-import Navbar from "./components/clientSide/navbar/navbar";
-import Video from "./components/clientSide/landingVideo/video.jsx";
-import ServicesCard from "./components/clientSide/services-card/servicesCard";
-import MyCarousel from "./components/clientSide/whoAreWeCarousel/whoAreWeCarousel.jsx";
-import Appointment from "./components/clientSide/appointmentWidget/appointment.jsx";
-import Reviews from "./components/clientSide/reviews/reviews.jsx";
-import Footer from "./components/clientSide/footer/footer";
+import { Routes, Route, Outlet, Navigate } from "react-router-dom";
+import Navbar from "./components/clientSide/navbar/navbar.jsx";
+import Footer from "./components/clientSide/footer/footer.jsx";
+import HomePage from "./pages/clientSide/homePage.jsx";
+import ContactUsPage from "./pages/clientSide/contactUsPage.jsx";
+import BookingServices from "./components/clientSide/bookingServices/bookingServices.jsx";
+
+// const Layout = () => {
+//   return (
+//     <>
+//       <Navbar />
+//       <Outlet />
+//       <Footer />
+//     </>
+//   );
+// };
 
 function App() {
   return (
-    <div className="my-app">
-      <Navbar />
-      <Video />
-      <ServicesCard />
-      <MyCarousel />
-      <Appointment />
-      <Reviews />
-      <Footer />
-    </div>
+    // <Routes>
+    //   <Route path="/" element={<Layout />}>
+    //     <Route path="/" element={<HomePage />} />
+
+    //     <Route path="/contactus" element={<ContactUsPage />} />
+    //   </Route>
+    // </Routes>
+    <BookingServices/>
   );
 }
 
