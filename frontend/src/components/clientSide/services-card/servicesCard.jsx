@@ -1,6 +1,7 @@
 import Detail from "../../../assets/services/detail.jpg";
 import Detail1 from "../../../assets/services/detail1.jpg";
 import Detail2 from "../../../assets/services/detail2.jpg";
+import { Link } from "react-router-dom";
 import "./servicesCard.css";
 
 const ServicesCard = () => {
@@ -11,7 +12,9 @@ const ServicesCard = () => {
       </div>
       <div className="services-cards-container">
         <div className="services-card-client">
-          <img src={Detail} alt="Detail" />
+          <Link to="/singleService">
+            <img src={Detail} alt="Detail" />
+          </Link>
           <div className="service-intro">
             <h1>Polish</h1>
             <p>

@@ -2,10 +2,6 @@ import "./bookingServices.css";
 import Detail from "../../../assets/services/detail.jpg";
 
 const BookingServices = () => {
-  const handleSliderInput = (e) => {
-    const draggerContainer = document.querySelector(".dragger-container");
-    draggerContainer.style.setProperty("--position", `${e.target.value}%`);
-  };
   return (
     <>
       <div className="booking-services-card-client-container">
@@ -65,62 +61,17 @@ const BookingServices = () => {
               </div>
             </div>
           </div>
-        </div>
-        <div className="booking-services-card-client">
-          <div className="booking-services-card-image">
-            <img src={Detail} alt="" className="booking-services-client-img" />
-            <div className="booking-services-client-intro">
-              <h1>Polish</h1>
-            </div>
-          </div>
-          <div className="booking-services-card-content-client-wrapper">
-            <div className="booking-services-card-content-client">
-              <div className="booking-services-card-title-client">
-                <h2>ayya shi</h2>
-              </div>
-              <ul>
-                <li>car</li>
-                <li>wash</li>
-                <li>any</li>
-                <li>time</li>
-                <li>anywhere</li>
-              </ul>
-            </div>
-          </div>
-          <div className="section-two-cars-types-client-content">
-            <div className="car-type-client grey">
-              <div className="car-type-image-client">
-                <img src={Detail} alt="" className="car-type-img-client" />
-              </div>
-              <div className="car-size-client">
-                <p>small</p>
-              </div>
-              <div className="car-service-price-client">
-                <p>15$</p>
-              </div>
-            </div>
-            <div className="car-type-client">
-              <div className="car-type-image-client">
-                <img src={Detail} alt="" className="car-type-img-client" />
-              </div>
-              <div className="car-size-client">
-                <p>small</p>
-              </div>
-              <div className="car-service-price-client">
-                <p>15$</p>
-              </div>
-            </div>
-            <div className="car-type-client grey">
-              <div className="car-type-image-client">
-                <img src={Detail} alt="" className="car-type-img-client" />
-              </div>
-              <div className="car-size-client">
-                <p>small</p>
-              </div>
-              <div className="car-service-price-client">
-                <p>15$</p>
-              </div>
-            </div>
+          <div className="book-now-button-service">
+            <button className="carButtonService">
+              <div className="caption">Book Now</div>
+              <svg
+                viewBox="0 0 512 512"
+                xmlns="http://www.w3.org/2000/svg"
+                className="car"
+              >
+                <path d="M355.975 292.25a24.82 24.82 0 1 0 24.82-24.81 24.84 24.84 0 0 0-24.82 24.81zm-253-24.81a24.81 24.81 0 1 1-24.82 24.81 24.84 24.84 0 0 1 24.81-24.81zm-76.67-71.52h67.25l-13.61 49.28 92-50.28h57.36l1.26 34.68 32 14.76 11.74-14.44h15.62l3.16 16c137.56-13 192.61 29.17 192.61 29.17s-7.52 5-25.93 8.39c-3.88 3.31-3.66 14.44-3.66 14.44h24.2v16h-52v-27.48c-1.84.07-4.45.41-7.06.47a40.81 40.81 0 1 0-77.25 23h-204.24a40.81 40.81 0 1 0-77.61-17.67c0 1.24.06 2.46.17 3.67h-36z"></path>
+              </svg>
+            </button>
           </div>
         </div>
         <div className="booking-services-card-client">
@@ -178,104 +129,91 @@ const BookingServices = () => {
                 <p>15$</p>
               </div>
             </div>
+          </div>
+          <div className="book-now-button-service">
+            <button className="carButtonService">
+              <div className="caption">Book Now</div>
+              <svg
+                viewBox="0 0 512 512"
+                xmlns="http://www.w3.org/2000/svg"
+                className="car"
+              >
+                <path d="M355.975 292.25a24.82 24.82 0 1 0 24.82-24.81 24.84 24.84 0 0 0-24.82 24.81zm-253-24.81a24.81 24.81 0 1 1-24.82 24.81 24.84 24.84 0 0 1 24.81-24.81zm-76.67-71.52h67.25l-13.61 49.28 92-50.28h57.36l1.26 34.68 32 14.76 11.74-14.44h15.62l3.16 16c137.56-13 192.61 29.17 192.61 29.17s-7.52 5-25.93 8.39c-3.88 3.31-3.66 14.44-3.66 14.44h24.2v16h-52v-27.48c-1.84.07-4.45.41-7.06.47a40.81 40.81 0 1 0-77.25 23h-204.24a40.81 40.81 0 1 0-77.61-17.67c0 1.24.06 2.46.17 3.67h-36z"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div className="booking-services-card-client">
+          <div className="booking-services-card-image">
+            <img src={Detail} alt="" className="booking-services-client-img" />
+            <div className="booking-services-client-intro">
+              <h1>Polish</h1>
+            </div>
+          </div>
+          <div className="booking-services-card-content-client-wrapper">
+            <div className="booking-services-card-content-client">
+              <div className="booking-services-card-title-client">
+                <h2>ayya shi</h2>
+              </div>
+              <ul>
+                <li>car</li>
+                <li>wash</li>
+                <li>any</li>
+                <li>time</li>
+                <li>anywhere</li>
+              </ul>
+            </div>
+          </div>
+          <div className="section-two-cars-types-client-content">
+            <div className="car-type-client grey">
+              <div className="car-type-image-client">
+                <img src={Detail} alt="" className="car-type-img-client" />
+              </div>
+              <div className="car-size-client">
+                <p>small</p>
+              </div>
+              <div className="car-service-price-client">
+                <p>15$</p>
+              </div>
+            </div>
+
+            <div className="car-type-client">
+              <div className="car-type-image-client">
+                <img src={Detail} alt="" className="car-type-img-client" />
+              </div>
+              <div className="car-size-client">
+                <p>small</p>
+              </div>
+              <div className="car-service-price-client">
+                <p>15$</p>
+              </div>
+            </div>
+            <div className="car-type-client grey">
+              <div className="car-type-image-client">
+                <img src={Detail} alt="" className="car-type-img-client" />
+              </div>
+              <div className="car-size-client">
+                <p>small</p>
+              </div>
+              <div className="car-service-price-client">
+                <p>15$</p>
+              </div>
+            </div>
+          </div>
+          <div className="book-now-button-service">
+            <button className="carButtonService">
+              <div className="caption">Book Now</div>
+              <svg
+                viewBox="0 0 512 512"
+                xmlns="http://www.w3.org/2000/svg"
+                className="car"
+              >
+                <path d="M355.975 292.25a24.82 24.82 0 1 0 24.82-24.81 24.84 24.84 0 0 0-24.82 24.81zm-253-24.81a24.81 24.81 0 1 1-24.82 24.81 24.84 24.84 0 0 1 24.81-24.81zm-76.67-71.52h67.25l-13.61 49.28 92-50.28h57.36l1.26 34.68 32 14.76 11.74-14.44h15.62l3.16 16c137.56-13 192.61 29.17 192.61 29.17s-7.52 5-25.93 8.39c-3.88 3.31-3.66 14.44-3.66 14.44h24.2v16h-52v-27.48c-1.84.07-4.45.41-7.06.47a40.81 40.81 0 1 0-77.25 23h-204.24a40.81 40.81 0 1 0-77.61-17.67c0 1.24.06 2.46.17 3.67h-36z"></path>
+              </svg>
+            </button>
           </div>
         </div>
       </div>
-
-
-
-
-
-
-
-
-      {/* //////////////////////////////////////////// */}
-      <main>
-        <div className="dragger-container">
-          <div className="image-container">
-            <img
-              className="image-before slider-image"
-              src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-              alt="color photo"
-            />
-            <img
-              className="image-after slider-image"
-              src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-              alt="black and white"
-            />
-          </div>
-          <input
-            type="range"
-            min={0}
-            max={100}
-            defaultValue={50}
-            aria-label="Percentage of before photo shown"
-            className="slider"
-            onChange={handleSliderInput}
-          />
-          <div className="slider-line" aria-hidden="true" />
-          <div className="slider-button" aria-hidden="true">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width={30}
-              height={30}
-              fill="currentColor"
-              viewBox="0 0 256 256"
-            >
-              <rect width={256} height={256} fill="none" />
-              <line
-                x1={128}
-                y1={40}
-                x2={128}
-                y2={216}
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={16}
-              />
-              <line
-                x1={96}
-                y1={128}
-                x2={16}
-                y2={128}
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={16}
-              />
-              <polyline
-                points="48 160 16 128 48 96"
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={16}
-              />
-              <line
-                x1={160}
-                y1={128}
-                x2={240}
-                y2={128}
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={16}
-              />
-              <polyline
-                points="208 96 240 128 208 160"
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={16}
-              />
-            </svg>
-          </div>
-        </div>
-      </main>
     </>
   );
 };
