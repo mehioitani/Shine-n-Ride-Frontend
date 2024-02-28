@@ -6,6 +6,10 @@
   justify-content: center !important;
   padding: 40px 0 !important;
   height: 500px;
+
+}
+.mySwiper{
+  margin: 50px;
 }
 
 .reviews-client-content {

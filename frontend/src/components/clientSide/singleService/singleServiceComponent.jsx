@@ -1,10 +1,14 @@
-import "./sss.css";
+import "./singleServiceComponent.css";
 import Detail1 from "../../../assets/services/detail1.jpg";
+import Before from "../../../assets/beforeAfter/before.png";
+import After from "../../../assets/beforeAfter/after.png";
+import { useCart } from "../../../hooks/useCart.jsx";
 const handleSliderInput = (e) => {
-    const draggerContainer = document.querySelector(".dragger-container");
-    draggerContainer.style.setProperty("--position", `${e.target.value}%`);
-  };
-const SSS = () => {
+  const draggerContainer = document.querySelector(".dragger-container");
+  draggerContainer.style.setProperty("--position", `${e.target.value}%`);
+};
+const SingleServiceComponent = () => {
+  const { addToCart } = useCart();
   return (
     <>
       <div className="top-section-container">
@@ -39,7 +43,6 @@ const SSS = () => {
         </div>
       </div>
 
-
       <div className="bottom-section-container">
         <div className="bottom-section-text">
           <div className="text-2">
@@ -71,16 +74,16 @@ const SSS = () => {
           </div>
         </div>
         <div className="bottom-section-image">
-        <div className="dragger-container">
+          <div className="dragger-container">
             <div className="image-container">
               <img
                 className="image-before slider-image"
-                src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+                src={Before}
                 alt="color photo"
               />
               <img
                 className="image-after slider-image"
-                src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+                src={After}
                 alt="black and white"
               />
             </div>
@@ -157,10 +160,8 @@ const SSS = () => {
           </div>
         </div>
       </div>
-
-
     </>
   );
 };
 
-export default SSS;
+export default SingleServiceComponent;

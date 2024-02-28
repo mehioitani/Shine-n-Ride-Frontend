@@ -1,8 +1,8 @@
 import Users from "../../../assets/users/users.jpg";
-// import Slider from "react-slick";
-// import "slick-carousel/slick/slick.css";
-// import "slick-carousel/slick/slick-theme.css";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 import "swiper/css";
 import "swiper/css/grid";
 import "swiper/css/pagination";
@@ -11,37 +11,29 @@ import { Grid } from "swiper/modules";
 import "./reviews.css";
 
 const Reviews = () => {
-  const reviewsData = [
-    {
-      id: 1,
-      name: "John Doe",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    },
-    {
-      id: 2,
-      name: "Jane Smith",
-      description:
-        "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
-    },
-    {
-      id: 3,
-      name: "Alice Johnson",
-      description:
-        "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    },
-    {
-      id: 4,
-      name: "Bob Anderson",
-      description:
-        "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    },
-    {
-      id: 5,
-      name: "Bob Anderson",
-      description:
-        "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    },
-  ];
+  const params = useParams();
+  const [reviews, setReviews] = useState([]);
+  useEffect(() => {
+    const fetchReviews = async () => {
+      try {
+        const response = await axios.get(
+          import.meta.env.VITE_API_ENDPOINT + `api/reviews`
+        );
+
+        console.log("reviews response.data", response.data);
+        setReviews(response.data.data);
+        console.log("reviews response.data.data", response.data.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchReviews();
+  }, []);
+
+  const filteredReviews = reviews.filter(
+    (r) => r?.categoryId.category_title === params.title
+  );
 
   return (
     <Swiper
@@ -75,8 +67,8 @@ const Reviews = () => {
         },
       }}
     >
-      {reviewsData.map((review) => (
-        <SwiperSlide key={review.id} className="reviews-client-content">
+      {filteredReviews.map((review) => (
+        <SwiperSlide key={review._id} className="reviews-client-content">
           <div className="reviews-card-client-wrapper">
             <div className="reviews-card-client">
               <div className="image-reviews-client-content">
@@ -91,9 +83,7 @@ const Reviews = () => {
               </div>
               <div className="reviews-card-content">
                 <h4 className="reviews-client-name">{review.name}</h4>
-                <p className="reviews-client-description">
-                  {review.description}
-                </p>
+                <p className="reviews-client-description">{review.comment}</p>
                 <button className="reviews-client-button">View More</button>
               </div>
             </div>

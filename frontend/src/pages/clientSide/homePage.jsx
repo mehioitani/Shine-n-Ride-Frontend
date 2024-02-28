@@ -1,14 +1,16 @@
 import LandingVideo from "../../components/clientSide/landingVideo/video.jsx";
-import Services from "../../components/clientSide/services-card/servicesCard.jsx";
+import Categories from "../../components/clientSide/categories-card/categoriesCard.jsx";
 import AboutUsCarousel from "../../components/clientSide/whoAreWeCarousel/whoAreWeCarousel.jsx";
 import Appointment from "../../components/clientSide/appointmentWidget/appointment.jsx";
 import AllReviews from "../../components/clientSide/reviews/reviews.jsx";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 const HomePage = () => {
   return (
     <>
       <LandingVideo />
-      <Services />
+      <Categories />
       <AboutUsCarousel />
       <Appointment />
       <AllReviews />

@@ -40,17 +40,24 @@ const Navbar = () => {
           </li>
         </ul>
       </nav>
-      <div
-        className="car-cart-wrapper"
-        style={{ height: "150px", width: "200px", "--i": 4 }}
-      >
-        <img
-          src={CarCart}
-          alt="CarCart"
-          style={{ height: "48px", width: "40px", "--i": 4, cursor: "pointer" }}
-          className="car-cart"
-        />
-      </div>
+      <Link to="/addToCart">
+        <div
+          className="car-cart-wrapper"
+          style={{ height: "150px", width: "200px", "--i": 4 }}
+        >
+          <img
+            src={CarCart}
+            alt="CarCart"
+            style={{
+              height: "48px",
+              width: "40px",
+              "--i": 4,
+              cursor: "pointer",
+            }}
+            className="car-cart"
+          />
+        </div>
+      </Link>
     </div>
   );
 };
