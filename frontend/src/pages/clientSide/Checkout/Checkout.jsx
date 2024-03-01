@@ -7,17 +7,17 @@ import "react-toastify/dist/ReactToastify.css";
 import "./Checkout.css";
 
 function Checkout() {
-  const { cartServices, setCartServices, addToCart, removeFromCart } =
+  const { cartServices, setCartServices, addToCart, removeFromCart,selectedPrice } =
     useCart();
 
   const services = cartServices?.map((service) => ({
     serviceId: service._id,
     quantity: service.quantity,
-    price: service.price,
+    price: service.selectedPrice,
   }));
 
   const totalAmount = services.reduce(
-    (accumulator, service) => accumulator + service.quantity * service.price,
+    (accumulator, service) => accumulator + service.quantity * service.selectedPrice,
     0
   );
 
@@ -49,7 +49,7 @@ function Checkout() {
       console.log(response.data);
       if (response.data.success) {
         setCartServices([]);
-        toast.info(`Thank you for placing an order with AuntyScrunchies.`, {
+        toast.info(`Thank you for placing an order with Shine 'n' Ride.`, {
           position: "top-center",
           autoClose: 2000,
           theme: "light",

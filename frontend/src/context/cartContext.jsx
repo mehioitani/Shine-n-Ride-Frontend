@@ -2,14 +2,16 @@ import React, { createContext, useEffect, useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
-import IconExclamation from "../assets/exclamation.svg";
-import pinktick from "../assets/pinktick.svg";
+import IconExclamation from "../assets/exclamation.png";
+import BlackTick from "../assets/blackTick.png";
 import "./cart.css";
 
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
+  const [selectedPrice, setSelectedPrice] = useState();
+  const handleRadioChange = (event) => {
+    setSelectedPrice(event.target.value);}
   const [cartServices, setCartServices] = useState(() => {
     const storedCartServices =
       JSON.parse(localStorage.getItem("cartServices")) || [];
@@ -21,13 +23,16 @@ export const CartProvider = ({ children }) => {
     const fetchAllServices = async () => {
       try {
         const response = await axios.get(
-          import.meta.env.VITE_API_ENDPOINT + `api/services/`
+          import.meta.env.VITE_API_ENDPOINT + `api/services`
         );
         setAllServices(response.data.data);
+        // console.log('response cart :', response.data.data);
+        // console.log('response cart 2 ::',allServices)
       } catch (error) {
         console.error(error);
       }
     };
+    
 
     fetchAllServices();
   }, []);
@@ -37,7 +42,9 @@ export const CartProvider = ({ children }) => {
   }, [cartServices]);
 
   const addToCart = (service) => {
-    const existingService = cartServices.find((s) => s._id === service._id);
+    console.log("service OBJECT:",service)
+    const existingService = cartServices.find((s) => s._id === service?._id);
+    console.log("service ID:", service?._id)
 
     if (existingService) {
       if (existingService.quantity < existingService.maxQuantity) {
@@ -47,9 +54,9 @@ export const CartProvider = ({ children }) => {
           )
         );
         toast.success(`Service ${service.service_title} added to Cart`, {
-          icon: <img src={pinktick} width={22} alt="abv" />,
+          icon: <img src={BlackTick} width={22} alt="abv" />,
           progressStyle: {
-            background: "#FCE5EF",
+            background: "rgb(18,18,18)",
           },
           position: "top-center",
           autoClose: 2000,
@@ -74,7 +81,7 @@ export const CartProvider = ({ children }) => {
           { ...service, quantity: 1 },
         ]);
         toast.success(`Service ${service.service_title} added to Cart`, {
-          icon: <img src={pinktick} width={22} alt="abv" />,
+          icon: <img src={BlackTick} width={22} alt="abv" />,
           progressStyle: {
             background: "#FCE5EF",
           },
@@ -124,7 +131,7 @@ export const CartProvider = ({ children }) => {
 
     toast(confirmationComponent, {
       progressStyle: {
-        background: "rgb(251, 213, 229)",
+        background: "rgb(18,18,18)",
       },
       position: "top-center",
       autoClose: 3000,
@@ -155,6 +162,8 @@ export const CartProvider = ({ children }) => {
     }
   };
 
+  
+
   const handleDecrement = (cartService) => {
     if (cartService.quantity > 1) {
       setCartServices((prevCartServices) =>
@@ -182,6 +191,8 @@ export const CartProvider = ({ children }) => {
         removeFromCart,
         handleIncrement,
         handleDecrement,
+        selectedPrice,
+        handleRadioChange
       }}
     >
       {children}

@@ -1,5 +1,6 @@
 import React from "react";
 import { useCart } from "../../../hooks/useCart.jsx";
+import { useState } from "react";
 
 import {
   MDBBtn,
@@ -16,13 +17,17 @@ import {
 import { Link } from "react-router-dom";
 import "./AddToCart.css";
 
-export default function ServiceCards() {
+export default function ServiceCards({service}) {
+ 
+  
   const {
     cartServices,
     setCartServices,
     handleIncrement,
     handleDecrement,
     removeFromCart,
+    selectedPrice,
+    handleRadioChange
   } = useCart();
 
   console.log("cartServicesitems: ", cartServices);
@@ -71,7 +76,7 @@ export default function ServiceCards() {
                       <MDBCardImage
                         className="rounded-3"
                         fluid
-                        src={import.meta.env.VITE_API_ENDPOINT + service.image}
+                        src={service.service_image}
                         alt={`image_${service.service_title}`}
                       />
                     </MDBCol>
@@ -79,71 +84,100 @@ export default function ServiceCards() {
                       <p className="lead fw-normal mb-2">
                         {service.service_title}
                       </p>
-                      <p>
+                      {/* <p>
                         <span className="text-muted">Size: </span>
                         {service.size}{" "}
                         <span className="text-muted">Color: </span>
                         {service.color}
-                      </p>
-                    </MDBCol>
-                      <MDBCol
-                        md="3"
-                        lg="3"
-                        xl="2"
-                        className="d-flex align-items-center justify-content check-products-details"
-                      >
-                        <MDBCol md="3" lg="3" xl="3" className="offset-lg-1">
-                          <MDBTypography
-                            tag="h5"
-                            className="mb-0 product-price-checkout"
-                          >
-                            {`${service.price}$`}
-                          </MDBTypography>
-                        </MDBCol>
-                        <button
-                          onClick={() => {
-                            handleDecrement(service);
-                          }}
-                          className="buttonCartMinus"
-                        >
-                          <MDBIcon fas icon="minus" />
-                        </button>
-                        <MDBInput
-                          className="cartplusminusinput"
-                          min={0}
-                          value={service.quantity}
-                          type="text"
-                          size="sm"
-                          // onChange={(e) => {
-                          //   const updatedProducts = [...cartProducts]; // Create a copy of the array
-
-                          //   if (updatedProducts.length > 0) {
-                          //     updatedProducts[index] = {
-                          //       ...updatedProducts[index],
-                          //       quantity: +e.target.value,
-                          //     };
-
-                          //     setCartProducts(updatedProducts);
-                          //   }
-                          // }}
+                      </p> */}
+                      <div className="car-service-prices" style={{display:
+                      'flex', justifyContent:'space-between'}}>
+                        <input
+                          type="radio"
+                          id="Small"
+                          name="Small"
+                          value={service.priceSmall}
+                          checked={selectedPrice === service.priceSmall}
+                          onChange={handleRadioChange}
                         />
-                        <button
-                          className="buttonCartPlus"
-                          onClick={() => handleIncrement(service)}
-                        >
-                          <MDBIcon fas icon="plus" />
-                        </button>
-                      </MDBCol>
-
-                      
-                      <MDBCol md="3" lg="2" xl="2" className="offset-lg-1">
+                        Small
+                        <input
+                          type="radio"
+                          id="Medium"
+                          name="Medium"
+                          value={service.priceMedium}
+                          checked={selectedPrice === service.priceMedium}
+                          onChange={handleRadioChange}
+                        />
+                         <label htmlFor="Medium">Medium</label>  
+                        <input
+                          type="radio"
+                          id="Large"
+                          name="Large"
+                          value={service.priceLarge}
+                          checked={selectedPrice === service.priceLarge}
+                          onChange={handleRadioChange}
+                          
+                        />
+                        Large
+                      </div>
+                    </MDBCol>
+                    <MDBCol
+                      md="3"
+                      lg="3"
+                      xl="2"
+                      className="d-flex align-items-center justify-content check-products-details"
+                    >
+                      <MDBCol md="3" lg="3" xl="3" className="offset-lg-1">
                         <MDBTypography
                           tag="h5"
                           className="mb-0 product-price-checkout"
                         >
-                          {`${service.price * service.quantity}$`}
+                          {`${selectedPrice || 0}$`}
                         </MDBTypography>
                       </MDBCol>
+                      <button
+                        onClick={() => {
+                          handleDecrement(service);
+                        }}
+                        className="buttonCartMinus"
+                      >
+                        <MDBIcon fas icon="minus" />
+                      </button>
+                      <MDBInput
+                        className="cartplusminusinput"
+                        min={0}
+                        value={service.quantity}
+                        type="text"
+                        size="sm"
+                        // onChange={(e) => {
+                        //   const updatedProducts = [...cartProducts]; // Create a copy of the array
+
+                        //   if (updatedProducts.length > 0) {
+                        //     updatedProducts[index] = {
+                        //       ...updatedProducts[index],
+                        //       quantity: +e.target.value,
+                        //     };
+
+                        //     setCartProducts(updatedProducts);
+                        //   }
+                        // }}
+                      />
+                      <button
+                        className="buttonCartPlus"
+                        onClick={() => handleIncrement(service)}
+                      >
+                        <MDBIcon fas icon="plus" />
+                      </button>
+                    </MDBCol>
+                    <MDBCol md="3" lg="2" xl="2" className="offset-lg-1">
+                      <MDBTypography
+                        tag="h5"
+                        className="mb-0 product-price-checkout"
+                      >
+                        {`${selectedPrice * service.quantity || 0}$`}
+                      </MDBTypography>
+                    </MDBCol>
                     <MDBCol
                       onClick={() => removeFromCart(index)}
                       md="1"
@@ -181,7 +215,7 @@ export default function ServiceCards() {
                 <p className="text-center px-3">
                   {cartServices.reduce(
                     (accumulator, service) =>
-                      accumulator + service.quantity * service.price,
+                      accumulator + service.quantity * selectedPrice || 0,
                     0
                   )}
                 </p>

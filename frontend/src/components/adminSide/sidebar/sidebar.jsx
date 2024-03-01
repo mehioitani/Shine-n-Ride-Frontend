@@ -4,10 +4,18 @@ import ServiceIcon from "../../../assets/sidebar/serviceIcon.png";
 import OrderIcon from "../../../assets/sidebar/orderIcon.png";
 import ReviewIcon from "../../../assets/sidebar/reviewIcon.png";
 
+import { useLogout } from "../../../hooks/useLogout.jsx";
 import { Link } from "react-router-dom";
 import "./sidebar.css";
 
 const Sidebar = () => {
+  const { logout } = useLogout();
+
+  const handleClick = async () => {
+    logout();
+    localStorage.clear();
+    window.location.reload();
+  };
   return (
     <>
       <div className="sidebar">
@@ -17,10 +25,12 @@ const Sidebar = () => {
         <div className="sidebar-content">
           <div className="sidebar-section">
             <div className="sidebar-link">
-              
-              <img src={CarouselIcon}/>
-              <Link to='/admin/carousels' style={{textDecoration:'none', color:'inherit'}} > 
-              <span>Carousel</span>
+              <img src={CarouselIcon} />
+              <Link
+                to="/admin/carousels"
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                <span>Carousel</span>
               </Link>
             </div>
             <div className="sidebar-link">
@@ -92,7 +102,7 @@ const Sidebar = () => {
               d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"
             />
           </svg>
-          <span>Log Out</span>
+          <span onClick={handleClick} style={{cursor:'pointer'}}>Log Out</span>
         </div>
       </div>
     </>

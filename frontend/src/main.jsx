@@ -6,21 +6,18 @@ import "react-toastify/dist/ReactToastify.css";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.js";
 import { CartProvider } from "./context/cartContext.jsx";
-import { AuthContext } from "./context/authContext.jsx";
+import { AuthContextProvider } from "./context/authContext.jsx";
 import App from "./App.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-  {/* // <React.Fragment> */}
     <Router>
       <ToastContainer />
-      <AuthContext>
+      <AuthContextProvider>
         <CartProvider>
           <App />
         </CartProvider>
-      </AuthContext>
+      </AuthContextProvider>
     </Router>
-    {/* </React.Fragment> */}
   </React.StrictMode>
 );
-

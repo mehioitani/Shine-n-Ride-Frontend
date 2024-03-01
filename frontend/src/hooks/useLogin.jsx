@@ -10,7 +10,7 @@ export const useLogin = () => {
     setIsLoading(true);
     setError(null);
 
-    const response = await fetch("http://localhost:8000/api/login", {
+    const response = await fetch("http://localhost:8000/api/admin/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),
@@ -24,10 +24,8 @@ export const useLogin = () => {
       setError(json.error);
     }
     if (response.ok) {
-     
       localStorage.setItem("admin", JSON.stringify(json));
 
-    
       dispatch({ type: "LOGIN", payload: json });
 
       setIsLoading(false);

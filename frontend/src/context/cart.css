@@ -7,9 +7,10 @@
 .reactToastifyConfirmationButtons button {
   width: 100px;
   border-radius: 10px;
-  background-color: #fce5ef;
+  background-color: rgb(18,18,18);
   border: solid 1px rgb(0, 0, 0, 0.4);
   height: 30px;
+  color: #fff;
 }
 
 .reactToastifyConfirmationBody p {
@@ -20,7 +21,7 @@
 
 .reactToastifyConfirmationBody img {
   width: 44px;
-  color: #fce5ef;
+  color: rgb(18,18,18);
 }
 
 .reactToastifyConfirmationBody .toastPandImage {
