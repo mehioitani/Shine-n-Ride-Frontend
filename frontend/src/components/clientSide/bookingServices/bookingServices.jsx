@@ -2,7 +2,6 @@ import "./bookingServices.css";
 import Small from "../../../assets/carSize/small.png";
 import Medium from "../../../assets/carSize/medium.png";
 import Large from "../../../assets/carSize/large.png";
-import { useState, useEffect } from "react";
 import { useCart } from "../../../hooks/useCart.jsx";
 import { useParams } from "react-router-dom";
 // LOADERS ON ALL PAGES
@@ -25,33 +24,31 @@ import { useParams } from "react-router-dom";
 // use toastify on everything admin panel
 // fixing radio buttons
 // check if price fixed on checkout
-import axios from "axios";
 
-const BookingServices = () => {
+const BookingServices = ({ services }) => {
   const { addToCart } = useCart();
-  const [services, setServices] = useState([]);
-  const [refreshPage, setRefreshPage] = useState("");
+  // const [services, setServices] = useState([]);
+  // const [refreshPage, setRefreshPage] = useState("");
   const params = useParams();
   console.log(params.title);
 
-  useEffect(() => {
-    
-    const fetchServices = async () => {
-      try {
-        const response = await axios.get(
-          import.meta.env.VITE_API_ENDPOINT + `api/services`
-        );
+  // useEffect(() => {
+  //   const fetchServices = async () => {
+  //     try {
+  //       const response = await axios.get(
+  //         import.meta.env.VITE_API_ENDPOINT + `api/services`
+  //       );
 
-        console.log("services response.data", response.data);
-        setServices(response.data.data);
-        console.log("services response.data.data", response.data.data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
+  //       console.log("services response.data", response.data);
+  //       setServices(response.data.data);
+  //       console.log("services response.data.data", response.data.data);
+  //     } catch (error) {
+  //       console.error(error);
+  //     }
+  //   };
 
-    fetchServices();
-  }, [refreshPage]);
+  //   fetchServices();
+  // }, [refreshPage]);
 
   const filteredServices = services.filter(
     (s) => s?.categoryId.category_title === params.title
@@ -78,14 +75,13 @@ const BookingServices = () => {
             <div className="booking-services-card-content-client-wrapper">
               <div className="booking-services-card-content-client">
                 <div className="booking-services-card-title-client">
-                  <h2>ayya shi</h2>
+                  <h2>{service.service_description.miniTitle}</h2>
                 </div>
                 <ul>
-                  <li>{service.service_description}</li>
-                  {/* <li>wash</li>
-                  <li>any</li>
-                  <li>time</li>
-                  <li>anywhere</li> */}
+                  <li>{service.service_description.first}</li>
+                  <li>{service.service_description.second}</li>
+                  <li>{service.service_description.third}</li>
+                  <li>{service.service_description.fourth}</li>
                 </ul>
               </div>
             </div>
@@ -125,12 +121,15 @@ const BookingServices = () => {
               </div>
             </div>
             <div className="book-now-button-service">
-              <button className="carButtonService" onClick={() => {
-                    addToCart({
-                      ...service,
-                      maxQuantity: service.quantity
-                    });
-                  }}>
+              <button
+                className="carButtonService"
+                onClick={() => {
+                  addToCart({
+                    ...service,
+                    maxQuantity: service.quantity,
+                  });
+                }}
+              >
                 <div className="caption">Book Now</div>
                 <svg
                   viewBox="0 0 512 512"
@@ -143,7 +142,6 @@ const BookingServices = () => {
             </div>
           </div>
         ))}
-
       </div>
     </>
   );

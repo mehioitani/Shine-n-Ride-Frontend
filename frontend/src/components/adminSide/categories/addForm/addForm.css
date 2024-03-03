@@ -1,10 +1,9 @@
-.form-container-edit-carousel {
+.form-container-category {
   position: absolute;
   left: 650px;
-  top: 150px;
+  top: 250px;
   z-index: 1;
-  height: 90vh;
-  max-height: 85vh;
+  min-height: 45vh;
   min-width: 550px;
   background: rgb(224, 224, 224);
   border-radius: 12px;
@@ -12,7 +11,7 @@
   font-family: "Poppins", sans-serif;
 }
 
-.form-edit-carousel {
+.form-submit-category {
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -20,12 +19,7 @@
   width: 100%;
 }
 
-.input-label-container-carousel-edit label {
-  font-size: 16px;
-  color: #000000;
-}
-
-.input-label-container-carousel-edit {
+.input-label-container-category {
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
@@ -33,7 +27,7 @@
   margin-right: 30px;
 }
 
-.label-carousel-edit {
+.label-category {
   margin-bottom: 5px;
   font-size: 16px;
   color: #000000;
@@ -42,8 +36,8 @@
   font-weight: 500;
 }
 
-.input-label-container-carousel-edit input,
-.input-label-container-carousel-edit textarea {
+.input-label-container-category input,
+.input-label-container-category textarea {
   width: 100%;
   padding: 8px;
   border: 1px solid #ddd;
@@ -53,17 +47,17 @@
   border-top: none;
   border-left: none;
   border-right: none;
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid rgb(0, 0, 0);
 }
 
-.carousel-buttons-container {
+.category-buttons-container {
   width: 100%;
   display: flex;
   justify-content: space-evenly;
 }
 
-.edit-carousel-1 button,
-.cancel-carousel-1 button {
+.add-category-1 button,
+.cancel-category-1 button {
   background: rgb(18, 18, 18);
   color: #fff;
   cursor: pointer;
@@ -72,8 +66,8 @@
   padding: 8px;
 }
 
-.edit-carousel-1 button:hover,
-.input-label-container-carousel-edit .cancel-carousel-1 button:hover {
+.category-buttons-container .add-category-1 button:hover,
+.category-buttons-container .cancel-category-1 button:hover {
   background: rgb(66, 66, 66);
 }
 

@@ -37,7 +37,6 @@ export default function ServiceCards({service}) {
     borderRadius: "10px",
     padding: "0.6% 4%",
     fontSize: "24px",
-    textAlign: "center",
     width: "250px",
     height: "40px",
     textAlign: "center",

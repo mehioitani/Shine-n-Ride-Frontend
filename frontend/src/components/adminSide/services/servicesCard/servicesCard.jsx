@@ -1,11 +1,11 @@
-import "./categoriesCard.css";
+import "./servicesCard.css";
 import axios from "axios";
 
-const CategoryCard = ({ category, handleChangeObject, refresh }) => {
-  const deleteCategory = async (id) => {
+const ServiceCard = ({ service, handleChangeObject, refresh }) => {
+  const deleteService = async (id) => {
     try {
       const response = await axios.delete(
-        import.meta.env.VITE_API_ENDPOINT + `api/categories/${category._id}`
+        import.meta.env.VITE_API_ENDPOINT + `api/services/${service._id}`
       );
       console.log(response.data);
       refresh("a");
@@ -15,9 +15,13 @@ const CategoryCard = ({ category, handleChangeObject, refresh }) => {
   };
   return (
     <div>
-      <div className="book" key={category._id}>
+      <div className="book" key={service._id}>
         <div className="book-paragraph">
-          <p>{category.category_description}</p>
+          <p>{service.priceSmall}</p>
+          <p>{service.priceMedium}</p>
+          <p>{service.priceLarge}</p>
+          <p>{service.service_description}</p>
+          <p>{service.quantity}</p>
         </div>
         <div className="edit-delete-buttons">
           <button

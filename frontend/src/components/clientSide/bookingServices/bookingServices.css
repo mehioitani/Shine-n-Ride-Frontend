@@ -2,6 +2,7 @@
   max-width: 1500px;
   margin: 50px auto;
   display: flex;
+  flex-direction: row-reverse;
   gap: 20px;
 }
 
@@ -29,12 +30,25 @@
   display: block;
 }
 
-.booking-services-client-intro {
+.booking-services-card-title-client h2{
+  font-size: 18px;
+  font-family: 'Poppins',sans-serif;
+  color: gray;
+}
+
+.booking-services-client-intro{
   position: absolute;
   top: 50%;
-  left: 16%;
+  left: 40%;
   transform: translate(-50%, -50%);
   color: rgb(255, 255, 255);
+  width: 360px;
+}
+
+.booking-services-client-intro h1 {
+  font-size: 28px;
+  font-weight: 500;
+  width: 100%;
 }
 
 .booking-services-card-content-client-wrapper {
