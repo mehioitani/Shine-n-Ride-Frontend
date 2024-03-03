@@ -10,7 +10,7 @@ import { useParams } from "react-router-dom";
 // add to cart notification
 // google maps
 // use toastify on everything admin panel
-// ROUTES PROTECTION
+// footer functionality
 
 
 const BookingServices = ({ services }) => {
