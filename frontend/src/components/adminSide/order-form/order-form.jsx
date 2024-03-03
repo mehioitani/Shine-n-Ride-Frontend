@@ -2,8 +2,11 @@ import "./order-form.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { useAuthContext } from "../../../hooks/useAuthContext.jsx";
 
 const OrderForm = () => {
+  const { admin } = useAuthContext();
+
   const [orders, setOrders] = useState([]);
   const [refreshPage, setRefreshPage] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
@@ -22,7 +25,12 @@ const OrderForm = () => {
   const deleteOrder = async (id) => {
     try {
       const response = await axios.delete(
-        import.meta.env.VITE_API_ENDPOINT + `api/orders/${id}`
+        import.meta.env.VITE_API_ENDPOINT + `api/orders/${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${admin.token}`,
+          },
+        }
       );
       console.log(response.data);
       refPage("a");

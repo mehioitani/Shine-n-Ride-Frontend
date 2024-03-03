@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./editForm.css";
+import { useAuthContext } from "../../../../hooks/useAuthContext.jsx";
 
 const EditCategoryForm = ({ refresh, setIsOpen, singleCategory }) => {
+  const { admin } = useAuthContext();
+
   const [data, setData] = useState(singleCategory);
 
   useEffect(() => {
@@ -19,7 +22,12 @@ const EditCategoryForm = ({ refresh, setIsOpen, singleCategory }) => {
 
       const response = await axios.put(
         import.meta.env.VITE_API_ENDPOINT + `api/categories/${data._id}`,
-        fData
+        fData,
+        {
+          headers: {
+            Authorization: `Bearer ${admin.token}`,
+          },
+        }
       );
       console.log(response);
       refresh("a");

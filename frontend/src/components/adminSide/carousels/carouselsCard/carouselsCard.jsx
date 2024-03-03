@@ -1,11 +1,18 @@
 import "./carouselsCard.css";
 import axios from "axios";
+import { useAuthContext } from "../../../../hooks/useAuthContext.jsx"; 
 
 const CarouselCard = ({ carousel, handleChangeObject, refresh }) => {
+  const { admin } = useAuthContext();
   const deleteCarousel = async (id) => {
     try {
       const response = await axios.delete(
-        import.meta.env.VITE_API_ENDPOINT + `api/carousels/${carousel._id}`
+        import.meta.env.VITE_API_ENDPOINT + `api/carousels/${carousel._id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${admin.token}`,
+          },
+        }
       );
       console.log(response.data);
       refresh("a");
@@ -14,10 +21,10 @@ const CarouselCard = ({ carousel, handleChangeObject, refresh }) => {
     }
   };
   return (
-    <div >
+    <div>
       <div className="book" key={carousel._id}>
         <div className="book-paragraph">
-        <p>{carousel.carousel_subtitle}</p>
+          <p>{carousel.carousel_subtitle}</p>
         </div>
         <div className="edit-delete-buttons">
           <button
@@ -82,7 +89,6 @@ const CarouselCard = ({ carousel, handleChangeObject, refresh }) => {
         </div>
 
         <div className="cover">
-          
           <div className="cover-image">
             <img src={carousel.carousel_image} />
           </div>

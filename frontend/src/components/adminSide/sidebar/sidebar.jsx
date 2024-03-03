@@ -1,9 +1,3 @@
-import CarouselIcon from "../../../assets/sidebar/carouselIcon.png";
-import CategoryIcon from "../../../assets/sidebar/categoryIcon.png";
-import ServiceIcon from "../../../assets/sidebar/serviceIcon.png";
-import OrderIcon from "../../../assets/sidebar/orderIcon.png";
-import ReviewIcon from "../../../assets/sidebar/reviewIcon.png";
-
 import { useLogout } from "../../../hooks/useLogout.jsx";
 import { Link } from "react-router-dom";
 import "./sidebar.css";
@@ -25,7 +19,7 @@ const Sidebar = () => {
         <div className="sidebar-content">
           <div className="sidebar-section">
             <div className="sidebar-link">
-              <img src={CarouselIcon} />
+              <img src="https://res.cloudinary.com/dpocnh6zk/image/upload/v1709486908/Shine-n-Ride/carouselIcon_ysf9gq.png" />
               <Link
                 to="/admin/carousels"
                 style={{ textDecoration: "none", color: "inherit" }}
@@ -34,7 +28,11 @@ const Sidebar = () => {
               </Link>
             </div>
             <div className="sidebar-link">
-              <img src={CategoryIcon} alt="" style={{ width: "20px" }} />
+              <img
+                src="https://res.cloudinary.com/dpocnh6zk/image/upload/v1709486908/Shine-n-Ride/categoryIcon_ijourn.png"
+                alt=""
+                style={{ width: "20px" }}
+              />
               <Link
                 to="/admin/categories"
                 style={{ textDecoration: "none", color: "inherit" }}
@@ -43,11 +41,23 @@ const Sidebar = () => {
               </Link>
             </div>
             <div className="sidebar-link">
-              <img src={ServiceIcon} alt="" style={{ width: "20px" }} />
+              <img
+                src="https://res.cloudinary.com/dpocnh6zk/image/upload/v1709486908/Shine-n-Ride/serviceIcon_jc7k1m.png"
+                alt=""
+                style={{ width: "20px" }}
+              />
+              <Link
+                to="/admin/services"
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
               <span>Services</span>
+              </Link>
             </div>
             <div className="sidebar-link">
-              <img src={OrderIcon} alt="" />
+              <img
+                src="https://res.cloudinary.com/dpocnh6zk/image/upload/v1709486908/Shine-n-Ride/orderIcon_ugpqa4.png"
+                alt=""
+              />
               <Link
                 to="/admin/orders"
                 style={{ textDecoration: "none", color: "inherit" }}
@@ -58,7 +68,10 @@ const Sidebar = () => {
           </div>
           <div className="sidebar-section">
             <div className="sidebar-link">
-              <img src={ReviewIcon} alt="" />
+              <img
+                src="https://res.cloudinary.com/dpocnh6zk/image/upload/v1709486908/Shine-n-Ride/reviewIcon_nbqs70.png"
+                alt=""
+              />
               <Link
                 to="/admin/reviews"
                 style={{ textDecoration: "none", color: "inherit" }}

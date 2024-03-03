@@ -1,8 +1,10 @@
 import "./addForm.css";
 import { useState } from "react";
 import axios from "axios";
+import { useAuthContext } from "../../../../hooks/useAuthContext.jsx";
 
 const CategoryAddForm = ({ refresh, setIsOpen }) => {
+  const { admin } = useAuthContext();
   const [data, setData] = useState({
     category_image: null,
     category_title: " ",
@@ -20,7 +22,12 @@ const CategoryAddForm = ({ refresh, setIsOpen }) => {
 
       const response = await axios.post(
         import.meta.env.VITE_API_ENDPOINT + "api/categories",
-        fData
+        fData,
+        {
+          headers: {
+            Authorization: `Bearer ${admin.token}`,
+          },
+        }
       );
       console.log(response);
       refresh("a");

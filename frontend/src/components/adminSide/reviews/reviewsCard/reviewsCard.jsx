@@ -1,12 +1,18 @@
 import "./reviewsCard.css";
-import userReview from "../../../../assets/userReview.png";
 import axios from "axios";
+import { useAuthContext } from "../../../../hooks/useAuthContext.jsx";
 
 const ReviewCard = ({ review, refresh }) => {
+  const { admin } = useAuthContext();
   const deleteReview = async (id) => {
     try {
       const response = await axios.delete(
-        import.meta.env.VITE_API_ENDPOINT + `api/reviews/${review._id}`
+        import.meta.env.VITE_API_ENDPOINT + `api/reviews/${review._id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${admin.token}`,
+          },
+        }
       );
       console.log(response.data);
       refresh("a");
@@ -73,7 +79,7 @@ const ReviewCard = ({ review, refresh }) => {
 
         <div className="cover">
           <div className="cover-image">
-            <img src={userReview} />
+            <img src="https://res.cloudinary.com/dpocnh6zk/image/upload/v1709486629/Shine-n-Ride/users_oywpao.jpg" />
           </div>
 
           <p>{review.name}</p>

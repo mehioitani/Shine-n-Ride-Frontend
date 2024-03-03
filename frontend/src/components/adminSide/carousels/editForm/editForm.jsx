@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./editForm.css";
-
+import { useAuthContext } from "../../../../hooks/useAuthContext.jsx";
 const EditCarouselForm = ({ refresh, setIsOpen, singleCarousel }) => {
+  const { admin } = useAuthContext();
   const [data, setData] = useState(singleCarousel);
 
   useEffect(() => {
@@ -19,7 +20,12 @@ const EditCarouselForm = ({ refresh, setIsOpen, singleCarousel }) => {
 
       const response = await axios.put(
         import.meta.env.VITE_API_ENDPOINT + `api/carousels/${data._id}`,
-        fData
+        fData,
+        {
+          headers: {
+            Authorization: `Bearer ${admin.token}`,
+          },
+        }
       );
       console.log(response);
       refresh("a");
@@ -49,11 +55,14 @@ const EditCarouselForm = ({ refresh, setIsOpen, singleCarousel }) => {
             <div className="input-label-container-carousel-edit">
               <label className="label-carousel-edit">
                 Carousel Subtitle
-                <textarea  cols="30" rows="5"value={data.carousel_subtitle || ""}
+                <textarea
+                  cols="30"
+                  rows="5"
+                  value={data.carousel_subtitle || ""}
                   onChange={(e) => {
                     setData({ ...data, carousel_subtitle: e.target.value });
-                  }}></textarea>
-                
+                  }}
+                ></textarea>
               </label>
             </div>
             <div className="input-label-container-carousel-edit">

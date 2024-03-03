@@ -1,11 +1,18 @@
 import "./categoriesCard.css";
 import axios from "axios";
+import { useAuthContext } from "../../../../hooks/useAuthContext.jsx";
 
 const CategoryCard = ({ category, handleChangeObject, refresh }) => {
+  const { admin } = useAuthContext();
   const deleteCategory = async (id) => {
     try {
       const response = await axios.delete(
-        import.meta.env.VITE_API_ENDPOINT + `api/categories/${category._id}`
+        import.meta.env.VITE_API_ENDPOINT + `api/categories/${category._id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${admin.token}`,
+          },
+        }
       );
       console.log(response.data);
       refresh("a");

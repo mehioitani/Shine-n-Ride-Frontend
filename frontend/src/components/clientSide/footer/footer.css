@@ -1,6 +1,7 @@
 .footer-container{
 	max-width: 1170px;
 	margin:auto;
+	height: 20vh;
 }
 .footer-row{
 	display: flex;
@@ -75,6 +76,9 @@
   .footer-col{
     width: 50%;
     margin-bottom: 30px;
+}
+.footer-container{
+	height: 100%;
 }
 }
 @media(max-width: 574px){

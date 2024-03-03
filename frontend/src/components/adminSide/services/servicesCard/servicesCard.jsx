@@ -1,11 +1,19 @@
 import "./servicesCard.css";
 import axios from "axios";
+import { useAuthContext } from "../../../../hooks/useAuthContext.jsx";
 
 const ServiceCard = ({ service, handleChangeObject, refresh }) => {
+  const { admin } = useAuthContext();
+
   const deleteService = async (id) => {
     try {
       const response = await axios.delete(
-        import.meta.env.VITE_API_ENDPOINT + `api/services/${service._id}`
+        import.meta.env.VITE_API_ENDPOINT + `api/services/${service._id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${admin.token}`,
+          },
+        }
       );
       console.log(response.data);
       refresh("a");
@@ -17,17 +25,16 @@ const ServiceCard = ({ service, handleChangeObject, refresh }) => {
     <div>
       <div className="book" key={service._id}>
         <div className="book-paragraph">
-          <p>{service.priceSmall}</p>
-          <p>{service.priceMedium}</p>
-          <p>{service.priceLarge}</p>
-          <p>{service.service_description}</p>
-          <p>{service.quantity}</p>
+          <p>Small Car: {service.priceSmall}</p>
+          <p>Medium Car: {service.priceMedium}</p>
+          <p>Large Car: {service.priceLarge}</p>
+          <p>Quantity: {service.quantity}</p>
         </div>
         <div className="edit-delete-buttons">
           <button
             className="editBtn"
             onClick={() => {
-              handleChangeObject(category);
+              handleChangeObject(service);
             }}
           >
             <svg height="1em" viewBox="0 0 512 512">
@@ -41,7 +48,7 @@ const ServiceCard = ({ service, handleChangeObject, refresh }) => {
               if (
                 window.confirm("Are you sure you want to delete this user?")
               ) {
-                deleteCategory(category._id);
+                deleteService(service._id);
               }
             }}
           >
@@ -87,14 +94,14 @@ const ServiceCard = ({ service, handleChangeObject, refresh }) => {
 
         <div className="cover">
           <div className="cover-image">
-            <img src={category.category_image} />
+            <img src={service.service_image} />
           </div>
 
-          <p>{category.category_title}</p>
+          <p>{service.service_title}</p>
         </div>
       </div>
     </div>
   );
 };
 
-export default CategoryCard;
+export default ServiceCard;

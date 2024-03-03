@@ -15,6 +15,7 @@ import CategoriesPage from "./pages/adminSide/CategoriesPage/categoriesPage.jsx"
 import ReviewsPage from "./pages/adminSide/ReviewsPage/reviewsPage.jsx";
 import OrdersPage from "./components/adminSide/order-form/order-form.jsx";
 import OrderDetails from "./pages/adminSide/admin-order/admin-order.jsx";
+import ServicesPage from "./pages/adminSide/servicesPage/servicesPage.jsx";
 
 // import Comment from "./components/comment.jsx";
 
@@ -51,87 +52,33 @@ function App() {
       </Route>
 
       <Route path="/admin" element={admin ? <AdminLayout /> : <AdminLogin />}>
-        <Route path="carousels" element={<CarouselsPage />} />
-        <Route path="categories" element={<CategoriesPage />} />
-        <Route path="reviews" element={<ReviewsPage />} />
-        <Route path="orders" element={<OrdersPage />} />
-        <Route path="orderDetails/:id" element={<OrderDetails />} />
+        <Route
+          path="carousels"
+          element={admin ? <CarouselsPage /> : <AdminLogin />}
+        />
+        <Route
+          path="categories"
+          element={admin ? <CategoriesPage /> : <AdminLogin />}
+        />
+        <Route
+          path="reviews"
+          element={admin ? <ReviewsPage /> : <AdminLogin />}
+        />
+        <Route
+          path="services"
+          element={admin ? <ServicesPage /> : <AdminLogin />}
+        />
+        <Route
+          path="orders"
+          element={admin ? <OrdersPage /> : <AdminLogin />}
+        />
+        <Route
+          path="orderDetails/:id"
+          element={admin ? <OrderDetails /> : <AdminLogin />}
+        />
       </Route>
-      {/* <Route path="comment" element={<Comment />}/> */}
     </Routes>
   );
 }
 
 export default App;
-
-{
-  /*
- {
-  totalAmount: {
-    type: Number,
-    // required: true,
-    min: 0,
-  },
-  // paymentMethod: {
-  //   type: String,
-  //   required: true,
-  //   enum: ["CreditCard", "CashOnDelivery"],
-  //   default: "CashOnDelivery",
-  // },
-  isPaid: {
-    type: Boolean,
-    default: false,
-  },
-  isDelivered: {
-    type: Boolean,
-    default: false,
-  },
-  deliveryCharge: {
-    type: Number,
-    default: 0,
-  },
-  deliveryAddress: {
-    receiverName: {
-      type: String,
-      required: true,
-    },
-    city: {
-      type: String,
-      required: true,
-    },
-    street: {
-      type: String,
-      required: true,
-    },
-    building: {
-      type: String,
-      required: true,
-    },
-    phone: {
-      type: String,
-      required: true,
-    },
-    addressDetails: {
-      type: String,
-    },
-  },
-  services: {
-    type: [
-      {
-        serviceId: {
-          type: mongoose.Schema.Types.ObjectId,
-          ref: "Service",
-          required: true,
-        },
-        quantity: {
-          type: Number,
-          required: true,
-        },
-        price: {
-          type: Number,
-        },
-
-      },
-    ],
-    */
-}

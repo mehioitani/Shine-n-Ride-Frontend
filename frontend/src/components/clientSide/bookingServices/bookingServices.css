@@ -15,6 +15,15 @@
   box-shadow: 5px 5px 20px black;
 }
 
+.services-title-intro {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: 50px;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+}
+
 .booking-services-card-image {
   position: relative;
   width: 100%;

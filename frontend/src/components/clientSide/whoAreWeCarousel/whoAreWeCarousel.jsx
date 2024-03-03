@@ -1,18 +1,40 @@
 import "../../../../node_modules/bootstrap/dist/css/bootstrap.css";
 import Carousel from "react-bootstrap/Carousel";
-import Image from "../../../assets/services/detail.jpg";
-import Image1 from "../../../assets/services/detail1.jpg";
-import Image2 from "../../../assets/services/detail2.jpg";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 const MyCarousel = () => {
+  const [carousels, setCarousels] = useState([]);
+
+  useEffect(() => {
+    const fetchCarousels = async () => {
+      try {
+        const response = await axios.get(
+          import.meta.env.VITE_API_ENDPOINT + "api/carousels"
+        );
+        console.log(response.data);
+        setCarousels(response.data.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchCarousels();
+  }, []);
+
   const carouselContainerStyle = {
     maxHeight: "90vh",
     overflow: "hidden",
     maxWidth: "1280px",
     margin: "15px auto 80px auto",
   };
+
+  const carouselStyle = {
+    height: "78vh",
+  };
   const carouselImageStyle = {
     objectFit: "cover",
+    height: "800px",
   };
 
   const carouselCaptionStyle = {
@@ -21,10 +43,15 @@ const MyCarousel = () => {
     alignItems: "center",
     justifyContent: "center",
     height: "100%",
+    backgroundColor: "rgba(18,18,18,0.4)",
+    borderRadius: "20px",
+    fontSize: "30px",
+    fontFamily: "Poppins,sans-serif",
+    fontWeight: "500",
   };
 
   return (
-    <div style={carouselContainerStyle}>
+    <div style={carouselContainerStyle} id="about">
       <div
         className="carousel-card-title"
         style={{
@@ -44,45 +71,21 @@ const MyCarousel = () => {
           Who Are We ?
         </h1>
       </div>
-      <Carousel>
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src={Image}
-            alt="First slide"
-            style={carouselImageStyle}
-          />
-          <Carousel.Caption style={carouselCaptionStyle}>
-            <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src={Image1}
-            alt="Second slide"
-            style={carouselImageStyle}
-          />
-          <Carousel.Caption style={carouselCaptionStyle}>
-            <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src={Image2}
-            alt="Third slide"
-            style={carouselImageStyle}
-          />
-          <Carousel.Caption style={carouselCaptionStyle}>
-            <h3>Third slide label</h3>
-            <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-            </p>
-          </Carousel.Caption>
-        </Carousel.Item>
+      <Carousel style={carouselStyle}>
+        {carousels.map((carousel) => (
+          <Carousel.Item key={carousel._id}>
+            <img
+              className="d-block w-100"
+              src={carousel.carousel_image}
+              alt="First slide"
+              style={carouselImageStyle}
+            />
+            <Carousel.Caption style={carouselCaptionStyle}>
+              <h3>{carousel.carousel_title}</h3>
+              <p>{carousel.carousel_subtitle}</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+        ))}
       </Carousel>
     </div>
   );

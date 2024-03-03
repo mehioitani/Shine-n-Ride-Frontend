@@ -1,6 +1,6 @@
 import React from "react";
 import { useCart } from "../../../hooks/useCart.jsx";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import {
   MDBBtn,
@@ -17,17 +17,19 @@ import {
 import { Link } from "react-router-dom";
 import "./AddToCart.css";
 
-export default function ServiceCards({service}) {
- 
-  
+export default function ServiceCards() {
+  const [selectedPrice, setSelectedPrice] = useState("");
+
+  const handleRadioChange = (e) => {
+    setSelectedPrice(e.target.value);
+  };
+
   const {
     cartServices,
     setCartServices,
     handleIncrement,
     handleDecrement,
     removeFromCart,
-    selectedPrice,
-    handleRadioChange
   } = useCart();
 
   console.log("cartServicesitems: ", cartServices);
@@ -49,10 +51,10 @@ export default function ServiceCards({service}) {
   //   fontFamily: 'Poppins', // Apply Poppins font family
   // };
   const containerStyle = {
-    padding: "20px", // Adjust the padding as needed
+    padding: "20px",
     border: "1px solid #b2b2b4",
     borderRadius: "10px",
-    marginTop: "20px", // Adjust the margin-top as needed
+    marginTop: "20px",
   };
   return (
     <section
@@ -83,40 +85,38 @@ export default function ServiceCards({service}) {
                       <p className="lead fw-normal mb-2">
                         {service.service_title}
                       </p>
-                      {/* <p>
-                        <span className="text-muted">Size: </span>
-                        {service.size}{" "}
-                        <span className="text-muted">Color: </span>
-                        {service.color}
-                      </p> */}
-                      <div className="car-service-prices" style={{display:
-                      'flex', justifyContent:'space-between'}}>
+                      <div
+                        className="car-service-prices"
+                        style={{
+                          display: "flex",
+                          justifyContent: "space-between",
+                        }}
+                      >
                         <input
                           type="radio"
                           id="Small"
-                          name="Small"
+                          name="Size"
                           value={service.priceSmall}
-                          checked={selectedPrice === service.priceSmall}
+                          defaultChecked={selectedPrice === service.priceSmall}
                           onChange={handleRadioChange}
                         />
                         Small
                         <input
                           type="radio"
                           id="Medium"
-                          name="Medium"
+                          name="Size"
                           value={service.priceMedium}
-                          checked={selectedPrice === service.priceMedium}
+                          defaultChecked={selectedPrice === service.priceMedium}
                           onChange={handleRadioChange}
                         />
-                         <label htmlFor="Medium">Medium</label>  
+                        <label htmlFor="Medium">Medium</label>
                         <input
                           type="radio"
                           id="Large"
-                          name="Large"
+                          name="Size"
                           value={service.priceLarge}
-                          checked={selectedPrice === service.priceLarge}
+                          defaultChecked={selectedPrice === service.priceLarge}
                           onChange={handleRadioChange}
-                          
                         />
                         Large
                       </div>
@@ -216,7 +216,7 @@ export default function ServiceCards({service}) {
                     (accumulator, service) =>
                       accumulator + service.quantity * selectedPrice || 0,
                     0
-                  )}
+                  )} $ 
                 </p>
 
                 <Link to="/checkout">

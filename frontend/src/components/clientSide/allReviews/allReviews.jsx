@@ -1,16 +1,15 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
 import axios from "axios";
 import "swiper/css";
 import "swiper/css/grid";
 import "swiper/css/pagination";
 
 import { Grid } from "swiper/modules";
-import "./reviews.css";
+import "./allReviews.css";
 
 const Reviews = () => {
-  const params = useParams();
+
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
     const fetchReviews = async () => {
@@ -30,9 +29,7 @@ const Reviews = () => {
     fetchReviews();
   }, []);
 
-  const filteredReviews = reviews.filter(
-    (r) => r?.categoryId.category_title === params.title
-  );
+  
 
   return (
     <Swiper
@@ -66,7 +63,7 @@ const Reviews = () => {
         },
       }}
     >
-      {filteredReviews.map((review) => (
+      {reviews.map((review) => (
         <SwiperSlide key={review._id} className="reviews-client-content">
           <div className="reviews-card-client-wrapper">
             <div className="reviews-card-client">
@@ -74,7 +71,7 @@ const Reviews = () => {
                 <span className="overlay"></span>
                 <div className="reviews-client-card-image-content">
                   <img
-                    src="https://res.cloudinary.com/dpocnh6zk/image/upload/v1709486629/Shine-n-Ride/users_oywpao.jpg"
+                    src='https://res.cloudinary.com/dpocnh6zk/image/upload/v1709486629/Shine-n-Ride/users_oywpao.jpg'
                     alt=""
                     className="reviews-client-card-image"
                   />

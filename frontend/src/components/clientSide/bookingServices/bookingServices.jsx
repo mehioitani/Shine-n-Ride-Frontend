@@ -1,54 +1,22 @@
 import "./bookingServices.css";
-import Small from "../../../assets/carSize/small.png";
-import Medium from "../../../assets/carSize/medium.png";
-import Large from "../../../assets/carSize/large.png";
 import { useCart } from "../../../hooks/useCart.jsx";
 import { useParams } from "react-router-dom";
-// LOADERS ON ALL PAGES
 // MINI NAV INSIDE EACH CATEGORY
-// ADD TO CART DONEEE
-// REVIEWS DONEEE
-// ARRAY OF OBJECTS MAP
-// REVIEW BY ID DONEEE
+// ADD TO CART Check logic ideas
 // ADMIN PANEL ON THE WAY
-// TITLES
 // SCROLLING WHEN NAVIGATING
-// SERVICE CARD CAR SIZES SMALL...
 // ACTIVE NAV LI
 // AUTO CLOSE NAVBAR
-// FOOTER
-// OVERFLOW X HIDDEN
 // add to cart notification
-// quantity fix
 // google maps
 // use toastify on everything admin panel
-// fixing radio buttons
-// check if price fixed on checkout
+// ROUTES PROTECTION
+
 
 const BookingServices = ({ services }) => {
   const { addToCart } = useCart();
-  // const [services, setServices] = useState([]);
-  // const [refreshPage, setRefreshPage] = useState("");
   const params = useParams();
   console.log(params.title);
-
-  // useEffect(() => {
-  //   const fetchServices = async () => {
-  //     try {
-  //       const response = await axios.get(
-  //         import.meta.env.VITE_API_ENDPOINT + `api/services`
-  //       );
-
-  //       console.log("services response.data", response.data);
-  //       setServices(response.data.data);
-  //       console.log("services response.data.data", response.data.data);
-  //     } catch (error) {
-  //       console.error(error);
-  //     }
-  //   };
-
-  //   fetchServices();
-  // }, [refreshPage]);
 
   const filteredServices = services.filter(
     (s) => s?.categoryId.category_title === params.title
@@ -59,7 +27,12 @@ const BookingServices = ({ services }) => {
   };
   return (
     <>
+    <div className="services-title-intro">
+    Our Services
+    </div>
+    
       <div className="booking-services-card-client-container">
+        
         {filteredServices.map((service) => (
           <div className="booking-services-card-client" key={service._id}>
             <div className="booking-services-card-image">
@@ -88,7 +61,11 @@ const BookingServices = ({ services }) => {
             <div className="section-two-cars-types-client-content">
               <div className="car-type-client grey">
                 <div className="car-type-image-client">
-                  <img src={Small} alt="" className="car-type-img-client" />
+                  <img
+                    src="https://res.cloudinary.com/dpocnh6zk/image/upload/v1709487111/Shine-n-Ride/small_iqddm1.png"
+                    alt=""
+                    className="car-type-img-client"
+                  />
                 </div>
                 <div className="car-size-client">
                   <p>small</p>
@@ -99,7 +76,11 @@ const BookingServices = ({ services }) => {
               </div>
               <div className="car-type-client">
                 <div className="car-type-image-client">
-                  <img src={Medium} alt="" className="car-type-img-client" />
+                  <img
+                    src="https://res.cloudinary.com/dpocnh6zk/image/upload/v1709487109/Shine-n-Ride/medium_chbugh.png"
+                    alt=""
+                    className="car-type-img-client"
+                  />
                 </div>
                 <div className="car-size-client">
                   <p>medium</p>
@@ -110,7 +91,11 @@ const BookingServices = ({ services }) => {
               </div>
               <div className="car-type-client grey">
                 <div className="car-type-image-client">
-                  <img src={Large} alt="" className="car-type-img-client" />
+                  <img
+                    src="https://res.cloudinary.com/dpocnh6zk/image/upload/v1709487109/Shine-n-Ride/large_swycom.png"
+                    alt=""
+                    className="car-type-img-client"
+                  />
                 </div>
                 <div className="car-size-client">
                   <p>large</p>

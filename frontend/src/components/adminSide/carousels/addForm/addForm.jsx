@@ -1,8 +1,10 @@
 import "./addForm.css";
 import { useState } from "react";
 import axios from "axios";
+import { useAuthContext } from "../../../../hooks/useAuthContext.jsx";
 
 const CarouselAddForm = ({ refresh, setIsOpen }) => {
+  const { admin } = useAuthContext();
   const [data, setData] = useState({
     carousel_image: null,
     carousel_title: " ",
@@ -20,7 +22,12 @@ const CarouselAddForm = ({ refresh, setIsOpen }) => {
 
       const response = await axios.post(
         import.meta.env.VITE_API_ENDPOINT + "api/carousels",
-        fData
+        fData,
+        {
+          headers: {
+            Authorization: `Bearer ${admin.token}`,
+          },
+        }
       );
       console.log(response);
       refresh("a");
