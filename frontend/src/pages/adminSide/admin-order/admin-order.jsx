@@ -11,7 +11,7 @@ const AdminOrder = () => {
     const fetchSingleOrderById = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8000/api/orders/${params.id}`
+          import.meta.env.VITE_API_ENDPOINT + `api/orders/${params.id}`
         );
         setOrder(response.data.data);
         console.log("single", response.data.data);
@@ -89,7 +89,6 @@ const AdminOrder = () => {
 
                 <span className="product-price">${service?.price}</span>
                 <span className="service-quantity">{service?.quantity}</span>
-           
               </li>
               <hr />
               <br />
